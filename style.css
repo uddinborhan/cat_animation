@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(top rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%), #d2d2d2 url(background_clouds.png);
+}
+.tuna{
+    animation: walk_cycle .9s steps(12) infinite;
+    background: url(tuna_sprite.png) repeat;
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    bottom: 1px;
+    transform: translateZ(0);
+}
+@keyframes walk_cycle {
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 0 -2391px;
+    }
+}
+.foreground, .midgraound, .background{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate3d(0,0,0);
+}
+.foreground{
+    background: url(foreground_grass.png) 0 100% repeat-x;
+    animation: prallax_fg 8s linear infinite;
+    z-index: 3;
+}
+@keyframes prallax_fg {
+    0%{
+        background-position: -3585px 100%;
+    }
+    100%{
+        background-position: 0 100%;
+    }
+}
+.midgraound{
+    background: url(midground_grass.png) 0 100% repeat-x;
+    animation: parallax_mg linear 20s infinite;
+    z-index: 2;
+}
+@keyframes parallax_mg {
+    0%{
+        background-position: -3000px 100%;
+    }
+    100%{
+        background-position: 0 100%;
+    }
+}
+.background{
+    background-image: url(background_mountain5.png),
+                      url(background_mountain4.png),
+                      url(background_mountain3.png),
+                      url(background_mountain2.png),
+                      url(background_mountain1.png);
+    background-repeat: repeat-x;
+    background-position: 0 100%;
+    z-index: 1;
+    animation: parallax_bg linear 40s infinite;
+}
+@keyframes parallax_bg {
+    100%{
+        background-position-x: 2400px, 2000px, 1800px, 1600px, 1200px;
+    }
+}
